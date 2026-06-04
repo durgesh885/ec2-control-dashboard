@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Durgesh DevOps Cloud Dashboard</title>
     
+    <!-- Favicon for Browser Tab -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><path d='M16 2L2 9.5v13L16 30l14-7.5v-13L16 2z' fill='%23ff9900'/><ellipse cx='16' cy='11.5' rx='6' ry='2.5' stroke='%23ffffff' stroke-width='1.5' fill='none'/><path d='M10 11.5v9c0 1.38 2.68 2.5 6 2.5 3.31 0 6-1.12 6-2.5v-9' stroke='%23ffffff' stroke-width='1.5' fill='none'/><path d='M10 16c0 1.38 2.68 2.5 6 2.5 3.31 0 6-1.12 6-2.5' stroke='%23ffffff' stroke-width='1.5' fill='none'/></svg>" type="image/svg+xml">
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -96,6 +99,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            flex-wrap: wrap;
         }
 
         .logo {
@@ -118,6 +122,7 @@
 
         .mobile-menu {
             display: none;
+            width: 100%;
             flex-direction: column;
             gap: 1rem;
             padding: 1rem 0;
@@ -342,6 +347,7 @@
             .menu-btn { display: none; }
             .mobile-menu { 
                 display: flex !important; 
+                width: auto;
                 flex-direction: row; 
                 border: none; 
                 margin: 0; 
@@ -361,17 +367,33 @@
     <!-- NAVIGATION -->
     <nav>
         <div class="container nav-content">
-            <a href="#" class="logo">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--aws-orange)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h4l3-9 5 18 3-9h5"/></svg>
-                Durgesh DevOps
+            <a href="#" class="logo" onclick="scrollToTop(); return false;">
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="filter: drop-shadow(0 0 6px rgba(255, 153, 0, 0.4));">
+                    <defs>
+                        <linearGradient id="logo-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#ff9900" />
+                            <stop offset="100%" stop-color="#3b82f6" />
+                        </linearGradient>
+                    </defs>
+                    <path d="M16 2L2 9.5V22.5L16 30L30 22.5V9.5L16 2Z" fill="url(#logo-grad)" fill-opacity="0.15" stroke="url(#logo-grad)" stroke-width="2"/>
+                    <ellipse cx="16" cy="11.5" rx="6" ry="2.5" stroke="currentColor" stroke-width="1.5"/>
+                    <path d="M10 11.5V20.5C10 21.88 12.686 23 16 23C19.314 23 22 21.88 22 20.5V11.5" stroke="currentColor" stroke-width="1.5"/>
+                    <path d="M10 16C10 17.38 12.686 18.5 16 18.5C19.314 18.5 22 17.38 22 16" stroke="currentColor" stroke-width="1.5"/>
+                </svg>
+                <div style="display: flex; align-items: center; gap: 8px;">
+                    <span style="font-size: clamp(0.95rem, 4vw, 1.25rem); white-space: nowrap;">Durgesh Chaudhari</span>
+                    <span style="border: 1px solid rgba(255, 153, 0, 0.3); padding: 2px 6px; border-radius: 4px; background: rgba(255, 153, 0, 0.05); display: inline-flex; align-items: center;">
+                        <span class="gradient-text" style="font-family: var(--font-code); font-size: 0.7rem; font-weight: 700; letter-spacing: 1px;">DEV</span>
+                    </span>
+                </div>
             </a>
             <button class="menu-btn" onclick="toggleMenu()">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
             </button>
             <div class="mobile-menu" id="mobile-menu">
                 <a href="#" onclick="scrollToTop()">Dashboard</a>
-                <a href="#about-section">About</a>
-                <a href="https://durgeshdevportfolio.vercel.app/" target="_blank">Portfolio</a>
+                <a href="#about-section" onclick="mobileMenu.classList.remove('active')">About</a>
+                <a href="https://durgeshdevportfolio.vercel.app/" target="_blank" onclick="mobileMenu.classList.remove('active')">Portfolio</a>
             </div>
         </div>
     </nav>
@@ -381,7 +403,7 @@
         
         <!-- HERO -->
         <header class="hero">
-            <h1 class="gradient-text">Cloud Dashboard</h1>
+            <h1 class="gradient-text">EC2 Dashboard</h1>
             <p>AWS EC2 Instance Management Interface</p>
         </header>
 
